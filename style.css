@@ -1,0 +1,237 @@
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+
+body{
+  padding :0 ;
+  margin :0;
+  background-color: #DDD;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Indie Flower', cursive;
+  box-sizing: border-box;
+  color: rgba(0,0,0,.7);
+  overflow:hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+
+
+.container-fluid {
+  width:500px;
+  height: auto;
+  margin-top: 20px;
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,.8);
+  overflow: hidden;
+  position: relative;
+}
+
+.container{
+  max-width:440px;
+  margin:0 auto;
+ position: relative;  
+}
+
+.container .header{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .header span{
+    cursor: pointer;
+    transition: .3s all;
+    box-shadow: 0 0 5px rgba(0,0,0,.7);
+}
+
+.container .header span:hover{
+    background-image: linear-gradient(to right top, #30bf66, #4fce5b, #6edc4d, #8eea39, #b0f614);
+    box-shadow: 0 0 10px rgba(0,0,0,.7);
+}
+
+.container .top {
+  background-color: #FFF;
+}
+
+.container .top {
+ position: relative;
+  width: 100%;
+  z-index: 9999;
+  top:0;
+  left:0;
+}
+
+.container .header h2{
+  margin : 0;
+  font-weight: bold;
+  font-size: 35px;
+/*   position: fixed; */
+}
+
+.container .header span{
+  font-size: 35px;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  background-color:#5B74E2;
+  border-radius: 50%;
+  color: #FFF;
+}
+
+.container  h3{
+  margin: 0;
+  margin-top: 20px;
+  color:#5B74E2;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.tasks-list{
+/*   margin-bottom: 20px; */
+  overflow-Y: scroll;
+  height: 400px;
+}
+
+.tasks-list .task{
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+  margin-left:30px;
+  margin-right: 30px;
+}
+
+.tasks-list .task:last-child{
+  margin-bottom:60px;
+}
+
+.tasks-list .task input{
+  flex-basis: 25px;
+  margin:0;
+  padding: 0;
+  -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+  height:25px;
+  width:25px;
+  border: 1px solid #C5C1CB;
+  border-radius: 50%;
+  outline: none;
+  position: relative;
+  transition: .3s all;
+  transition-delay: .2s; 
+}
+
+.tasks-list .task input:before{
+   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f00c";
+   font-size: 20px;
+   color : #5B74E2;
+   top : 50%;
+   left: 50%;
+   transform : translate(-50%,-50%);
+   position: absolute;
+   opacity: 0;
+   transition: .3s all;
+}
+
+ .tasks-list .task input:after{
+   content :'';
+   height: 20px;
+   width:20px;
+   border-radius: 50%;
+   top:0;
+   left:0;
+   border: 3px solid #5B74E2;
+   position: absolute;
+   opacity: 0;
+   transition: .3s all;
+  
+}
+
+.tasks-list .task input:checked{
+  border: 0px solid white
+  
+}
+
+.tasks-list .task input:checked ~ .line{
+  bottom:50%;
+}
+
+.tasks-list .task:last-child input:checked ~ .line{
+  bottom:50%;
+/*   margin-bottom:20px; */
+}
+
+.tasks-list .task input:checked ~ .task-name{
+  color: #C5C1CB;
+}
+
+
+.tasks-list .task input:checked:before{
+   opacity: 1;
+}
+
+.tasks-list .task input:checked:after{
+    -webkit-animation: scaleA .2s linear; 
+    animation: scaleA .2s linear;
+}
+
+.tasks-list .task .time{
+/*   flex-basis: 20%; */
+  padding-top: 3px;
+  color: #C5C1CB;
+  font-size: 20px;
+}
+
+.tasks-list .task .task-name{
+  flex-grow: 1;
+  margin:0;
+  margin-left:15px;
+  font-size: 25px;
+  font-weight:bold;
+  transition: .3s all;
+}
+
+
+.tasks-list .task .line{
+  position: absolute;
+  height:2px;
+  width: calc(100% - 40px);
+  border-radius: 1px;
+  background-color:#C5C1CB;
+  bottom: -50%;
+  right:0;
+  transition: .3s all;
+}
+
+@keyframes scaleA{
+  0%{
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  25%{
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50%{
+   opacity: 0.5;
+   transform: scale(2);
+  }
+  75%{
+    opacity: 0.25;
+    transform: scale(3);
+  }
+  100%{
+    opacity: 0;
+    transform: scale(4);
+  }
+}
