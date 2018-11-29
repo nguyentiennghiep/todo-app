@@ -1,5 +1,6 @@
 import * as React from 'react';
 import '../public/style.css';
+import Task from './Task';
 
 class App extends React.Component {
     render() {
@@ -15,18 +16,8 @@ class App extends React.Component {
                     </div>
                 </div>
                 <div className="tasks-list">
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Molk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Morning Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
+                    <Task />
+                    <Task />
                     <div className="task">
                         <input type="checkbox" />
                         <p className="task-name">Morning Walk</p>
