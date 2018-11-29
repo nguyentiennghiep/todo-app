@@ -5,9 +5,9 @@ class Task extends React.Component {
         return (
             <React.Fragment>
                 <div className="task">
-                    <input type="checkbox" />
-                    <p className="task-name">Molk</p>
-                    <span className="time">7.00 am</span>
+                    <input type="checkbox" checked={this.props.task.done}/>
+                    <p className="task-name">{this.props.task.name}</p>
+                    <span className="time">{this.props.task.start}</span>
                     <span className="line"></span>
                 </div>
             </React.Fragment>

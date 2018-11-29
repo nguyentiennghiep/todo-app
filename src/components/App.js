@@ -1,9 +1,14 @@
 import * as React from 'react';
 import '../public/style.css';
+import { connect } from 'react-redux';
 import Task from './Task';
 
 class App extends React.Component {
     render() {
+        const { tasks } = this.props;
+        const taskList = tasks.map((task, index) => {
+            return <Task task={task} key={index} />;
+        });
         return (
             <div className="container-fluid">
                 <div className="container">
@@ -16,60 +21,17 @@ class App extends React.Component {
                     </div>
                 </div>
                 <div className="tasks-list">
-                    <Task />
-                    <Task />
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Morning Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Morning Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task" >
-                        <input type="checkbox" />
-                        <p className="task-name">Morning Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Morning Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Morning Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Mng Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Walk</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p className="task-name">Morning</p>
-                        <span className="time">7.00 am</span>
-                        <span className="line"></span>
-                    </div>
+                    {taskList}
                 </div>
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks
+    };
+};
+
+export default connect(mapStateToProps, null)(App);
