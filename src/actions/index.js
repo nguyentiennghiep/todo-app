@@ -6,3 +6,16 @@ export const addTask = (task) => {
         task
     };
 };
+
+
+export const toggleOn = () => {
+    return {
+        type: types.TOGGLE_ON,
+    };
+};
+
+export const toggleOff = () => {
+    return {
+        type: types.TOGGLE_OFF,
+    };
+};
