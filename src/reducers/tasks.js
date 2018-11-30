@@ -18,7 +18,6 @@ const tasksReducer = function (state = initialState, action) {
         case types.ADD :{   
             let newState = [].concat(state);
             newState = newState.concat(action.task);
-            console.log(newState);
             return newState;
         }
         default: return state;
