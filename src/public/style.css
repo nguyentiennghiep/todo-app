@@ -1,11 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 
 body{
   padding :0 ;
   margin :0;
   background-color: #DDD;
+  position: relative;
 }
 *{
   box-sizing: border-box;
@@ -13,7 +17,7 @@ body{
 
 
 #root{
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display:flex;
   justify-content: center;
@@ -60,6 +64,14 @@ body{
     cursor: pointer;
     transition: .3s all;
     box-shadow: 0 0 5px rgba(0,0,0,.7);
+    position: relative;
+}
+
+.container .header span i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .container .header span:hover{
@@ -275,6 +287,8 @@ button{
 
 .dialog{
   position: absolute;
+  top: 0;
+  left:0;
   width: 100%;
   height: 100%;
   display: flex;

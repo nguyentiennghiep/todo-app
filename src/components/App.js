@@ -15,7 +15,7 @@ class App extends React.Component {
     }
 
     handleReset = () => {
-        window.confirm("Are you sure you wish to delete this item?") &&
+        window.confirm("Are you sure you wish to reset all tasks?") &&
             this.props.onReset()
     }
 
