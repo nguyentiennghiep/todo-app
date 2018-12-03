@@ -15,6 +15,11 @@ class AddForm extends React.Component {
     handleCancel = (e) => {
         e.preventDefault();
         this.props.offToggle();
+        this.setState({
+            name: '',
+            done: false,
+            start: ''
+        });
     }
 
     handleInputChange = (event) => {
@@ -46,11 +51,11 @@ class AddForm extends React.Component {
                     <h3>Add a task</h3>
                     <div className="input-group">
                         <label htmlFor="name-task">Task</label>
-                        <input type="text" id="name-task" name="name" onChange={this.handleInputChange} value={this.state.name} />
+                        <input type="text" id="name-task" name="name" onChange={this.handleInputChange} value={this.state.name} required />
                     </div>
                     <div className="input-group">
                         <label htmlFor="time-task">Time</label>
-                        <input type="text" id="time-task" name="start" onChange={this.handleInputChange} value={this.state.start} />
+                        <input type="text" id="time-task" name="start" onChange={this.handleInputChange} value={this.state.start} required />
                     </div>
                     <div className="button-area">
                         <button className="add" type="submit">Add</button>
