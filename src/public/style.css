@@ -273,13 +273,32 @@ form{
   box-shadow: 0 0 10px rgba(0,0,0,0.8);
   position: absolute;
   /* z-index : 999;  */
+  position: relative;
 }
 
-form > h3 {
+form .title-top h3 {
   margin:0;
   flex-basis: 80px;
   margin-top: 20px;
   font-size: 30px;
+  width: 100%;
+}
+
+
+form .title-top i{
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding-left: 4.5px;
+  padding-top: 2.5px;
+}
+
+form .title-top i:hover{
+  background-color:red;
+  color: #FFF;
 }
 
 form .input-group{

@@ -44,11 +44,24 @@ class AddForm extends React.Component {
         });
     }
 
+    handleClose = () => {
+        this.props.offToggle();
+        this.setState({
+            name: '',
+            done: false,
+            start: ''
+        });
+    }
+
     render() {
         return (
             <div className="dialog" style={this.props.toggle.display ? {} : { display: "none" }}>
                 <form onSubmit={this.handleSubmit}>
-                    <h3>Add a task</h3>
+                    <div className="title-top" >
+                        <h3>Add a task</h3>
+                        <i className="fas fa-times" onClick={this.handleClose}></i>
+                    </div>
+
                     <div className="input-group">
                         <label htmlFor="name-task">Task</label>
                         <input type="text" id="name-task" name="name" onChange={this.handleInputChange} value={this.state.name} required />
