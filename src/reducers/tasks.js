@@ -38,6 +38,12 @@ const tasksReducer = function (state = initialState, action) {
             {
                 newState[index].done = !newState[index].done;
             }
+            localStorage.setItem("tasks", JSON.stringify(newState));
+            return newState;
+        }
+        case types.RESET :{   
+            let newState  = [];
+            localStorage.setItem("tasks", JSON.stringify(newState));
             return newState;
         }
         default:{ 

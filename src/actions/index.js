@@ -26,3 +26,9 @@ export const doneTask = (id) =>{
         id
     }
 }
+
+export const resetTasks = () =>{
+    return {
+        type: types.RESET
+    }
+}
