@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
 
 class Task extends React.Component {
     constructor(props) {
@@ -12,10 +14,10 @@ class Task extends React.Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
+        this.props.onDone(this.props.task.id);
     };
 
     render() {
@@ -30,4 +32,18 @@ class Task extends React.Component {
     }
 }
 
-export default Task;
+// const mapStateToProps = (state) => {
+//     return {
+//         toggle: state.toggle
+//     };
+// };
+
+const mapDispatchToprops = (dispatch) => {
+    return {
+        onDone : (id) =>{
+            dispatch(actions.doneTask(id))
+        }
+    };
+};
+
+export default connect(null,mapDispatchToprops)(Task);

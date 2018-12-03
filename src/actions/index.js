@@ -19,3 +19,10 @@ export const toggleOff = () => {
         type: types.TOGGLE_OFF,
     };
 };
+
+export const doneTask = (id) =>{
+    return {
+        type: types.DONE,
+        id
+    }
+}

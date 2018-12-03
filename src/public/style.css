@@ -139,6 +139,10 @@ body{
   transition-delay: .2s; 
 }
 
+.tasks-list .task input:hover{
+  cursor: pointer;
+}
+
 .tasks-list .task input:before{
    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f00c";
    font-size: 20px;
@@ -299,6 +303,7 @@ form .title-top i{
 form .title-top i:hover{
   background-color:red;
   color: #FFF;
+  cursor: pointer;
 }
 
 form .input-group{
@@ -362,6 +367,7 @@ form .button-area .add{
 
 form .button-area .add:hover{
   background-color: rgb(17, 214, 63);
+  cursor: pointer;
 }
 
 form .button-area .cancel{
@@ -379,4 +385,5 @@ form .button-area .cancel{
 
 form .button-area .cancel:hover{
   background-color: crimson;
+  cursor: pointer;
 }

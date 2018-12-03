@@ -19,6 +19,13 @@ class App extends React.Component {
         const taskList = tasks.map((task, index) => {
             return <Task task={task} key={index} />;
         });
+        const count = tasks.reduce((count,task)=>{
+            if(task.done === false)
+            {
+                return count + 1;
+            }
+            return count;
+        },0);
         return (
             <React.Fragment>
                 <div className="container-fluid">
@@ -28,7 +35,7 @@ class App extends React.Component {
                                 <h2>Todo List</h2>
                                 <span onClick={this.handleClick}><i className="fas fa-plus"></i> </span>
                             </div>
-                            <h3>{tasks.length} tasks</h3>
+                            <h3>{count} tasks</h3>
                         </div>
                     </div>
                     <div className="tasks-list">
